@@ -42,4 +42,4 @@ jobs:
           chmod 600 ~/.ssh/id_rsa.pub
       - name: copy builds to server
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.USER_IP }} "docker service update --force --image ghcr.io/${{ secrets.OWNER }}/vps_monitoring_notifier:latest vps_monitoring_notifier_service"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.USER_IP }} "docker service update --force --image ghcr.io/${{ secrets.OWNER }}/vps_monitoring_notifier:latest monitoring_notifier_service"
