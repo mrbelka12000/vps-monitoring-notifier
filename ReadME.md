@@ -18,4 +18,6 @@
 | Prometheus                          |
 | Redis                               |
 | Add availability metrics to Grafana |
+| Test coverage > 80% (current 43.3%) |
+
 
