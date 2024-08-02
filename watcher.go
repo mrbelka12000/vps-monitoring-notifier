@@ -45,8 +45,9 @@ func NewWatcher(
 		transcripterBot: cfg.TranscripterBotURL,
 		goalsScheduler:  cfg.GoalsSchedulerBotURL,
 		mognoDB:         cfg.MongoURI,
-		postgresql:      cfg.PGURI,
+		postgreSQL:      cfg.PGURI,
 		mockServer:      cfg.MockServerURL,
+		redisDB:         cfg.RedisAddr,
 	}
 
 	w := &Watcher{
@@ -86,8 +87,9 @@ func (w *Watcher) run(ctx context.Context, done chan<- bool) {
 				transcripterBot: ping,
 				goalsScheduler:  ping,
 				mognoDB:         pingMongo,
-				postgresql:      pingPG,
+				postgreSQL:      pingPG,
 				mockServer:      ping,
+				redisDB:         pingRedis,
 			}
 
 			var errResp ErrorMessage

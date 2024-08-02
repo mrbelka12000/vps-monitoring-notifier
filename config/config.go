@@ -9,8 +9,9 @@ import (
 )
 
 type Config struct {
-	PGURI    string `env:"PG_URI,required"`
-	MongoURI string `env:"MONGO_URI,required"`
+	PGURI     string `env:"PG_URI,required"`
+	MongoURI  string `env:"MONGO_URI,required"`
+	RedisAddr string `env:"REDIS_ADDR,required"`
 
 	TranscripterBotURL   string `env:"TRANSCRIPTER_BOT_URL,required"`
 	GoalsSchedulerBotURL string `env:"GOALS_SCHEDULER_BOT_URL,required"`

@@ -11,13 +11,13 @@
 | TranscripterBot              |
 | GoalsSchedulerBot            |
 | MockServer                   |
+| Redis                        |
 
 | TO-DO                               |
 |-------------------------------------|
 | Grafana                             |
 | Prometheus                          |
-| Redis                               |
 | Add availability metrics to Grafana |
-| Test coverage > 80% (current 43.3%) |
+| Test coverage > 80%                 |
 
 
