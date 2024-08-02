@@ -1,0 +1,4 @@
+.idea
+.env
+bot.db
+.DS_Store
