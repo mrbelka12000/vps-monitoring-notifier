@@ -49,7 +49,7 @@ func main() {
 		tbot.WithLogger(log.With("instance", "telegram_bot")),
 	)
 
-	gs := make(chan os.Signal)
+	gs := make(chan os.Signal, 1)
 	signal.Notify(gs, syscall.SIGINT, syscall.SIGTERM)
 	stopChan := make(chan string)
 
@@ -66,6 +66,8 @@ func main() {
 		log.Info("Received", "signal", sig)
 		log.Info("Bot stopped properly")
 		bot.Stop()
+		signal.Stop(gs)
+		close(gs)
 	case msg := <-stopChan:
 		log.Info("Bot stopped", "error", msg)
 	}
@@ -76,5 +78,4 @@ func main() {
 
 	close(waitChan)
 	close(stopChan)
-	close(gs)
 }

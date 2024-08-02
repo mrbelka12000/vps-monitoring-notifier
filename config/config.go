@@ -16,7 +16,7 @@ type Config struct {
 	GoalsSchedulerBotURL string `env:"GOALS_SCHEDULER_BOT_URL,required"`
 	MockServerURL        string `env:"MOCK_SERVER_URL,required"`
 
-	WatcherInterval string `env:"WATCHER_INTERVAL,default=30s"`
+	WatcherInterval string `env:"WATCHER_INTERVAL,default=5s"`
 
 	TelegramToken string `env:"TELEGRAM_TOKEN,required"`
 
