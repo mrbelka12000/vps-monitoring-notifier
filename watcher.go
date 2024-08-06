@@ -82,6 +82,7 @@ func (w *Watcher) run(ctx context.Context, done chan<- bool) {
 		case <-ticker.C:
 
 			w.log.Info("executing service checker")
+
 			w.servicesMu.Lock()
 			required := map[serviceName]pingFunc{
 				transcripterBot: ping,
@@ -105,7 +106,9 @@ func (w *Watcher) run(ctx context.Context, done chan<- bool) {
 
 			w.servicesMu.Unlock()
 
-			w.messages <- errResp
+			if len(errResp) > 0 {
+				w.messages <- errResp
+			}
 
 			w.log.Info("service checker done")
 

@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	tickerNotifyInterval = 5 * time.Hour
+	tickerNotifyInterval = 302 * time.Minute
 )
 
 type Bot struct {
@@ -82,11 +82,6 @@ func (b *Bot) sendMessages(ctx context.Context, done chan<- bool) {
 			}
 
 		case msg := <-b.message:
-			if len(msg) == 0 {
-				b.log.Info("all services is okay")
-				continue
-			}
-
 			_, err := b.client.SendMessage(
 				b.chatID,
 				generateServicesListMsg(msg),
